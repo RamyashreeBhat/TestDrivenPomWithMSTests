@@ -5,13 +5,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Framework;
+using RelevantCodes.ExtentReports;
+using System.IO;
+using System.Reflection;
 
 namespace UnitTests
 {
     public class TestBase
     {
-       [TestInitialize]
+        protected ExtentReports extentReport = new ExtentReports(@"D:\VisualStudioRepository\TestDrivenPom_MSTest\TestResults\Results.html", false);
+        protected ExtentTest extentTest;
+
+        [TestInitialize]
         public void Initialize() {
+            extentReport.AddSystemInfo("User Name", "Ramyashree Bhat");
             Browser.Initialize();
                     }
 
@@ -19,6 +26,8 @@ namespace UnitTests
         public void CleanUp()
         {
           Browser.Close();
+          extentReport.EndTest(extentTest);
+          extentReport.Flush();
         }
 
     }

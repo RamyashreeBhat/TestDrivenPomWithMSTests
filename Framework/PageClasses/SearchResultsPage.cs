@@ -12,10 +12,10 @@ namespace Framework
         public int FindLinksCount(string searchText) {
             var links = Browser.FindPageElements(By.PartialLinkText(searchText));
 
-            foreach (IWebElement element in links)
-            {
-                Console.WriteLine(element.Text+"\n");
-            }
+            //foreach (IWebElement element in links)
+            //{
+            //    Console.WriteLine(element.Text+"\n");
+            //}
             Console.WriteLine("Count of links = "+links.Count());
             return links.Count();
            
