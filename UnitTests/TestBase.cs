@@ -14,14 +14,18 @@ namespace UnitTests
     public class TestBase
     {
         static string executablePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-        static string requiredPath = executablePath.Substring(0, executablePath.LastIndexOf("Debug"));
-        protected ExtentReports extentReport = new ExtentReports(requiredPath + @"Release\Results.html", false);
+        static string requiredPath = executablePath.Substring(0, executablePath.LastIndexOf("UnitTests"));
+        protected ExtentReports extentReport = new ExtentReports(requiredPath + @"TestResults\Results.html", false);
         protected ExtentTest extentTest;
+
+        [ClassInitialize]
+        public void Init() {
+            Directory.CreateDirectory(requiredPath + @"TestResults");
+        }
 
         [TestInitialize]
         public void Initialize() {
             extentReport.AddSystemInfo("User Name", "Ramyashree Bhat");
-            Console.WriteLine(requiredPath);
             Browser.Initialize();
                     }
 
