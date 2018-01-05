@@ -13,16 +13,8 @@ namespace UnitTests
 {
     public class TestBase
     {
-        static string executablePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-        static string requiredPath = executablePath.Substring(0, executablePath.LastIndexOf("UnitTests"));
-        protected ExtentReports extentReport = new ExtentReports(requiredPath + @"TestResults\Results.html", false);
+        protected ExtentReports extentReport = new ExtentReports(@"D:\VisualStudioRepository\TestDrivenPom_MSTest\Report\Results.html", false);
         protected ExtentTest extentTest;
-
-        [ClassInitialize]
-        public void Init() {
-            Directory.CreateDirectory(requiredPath + @"TestResults");
-        }
-
         [TestInitialize]
         public void Initialize() {
             extentReport.AddSystemInfo("User Name", "Ramyashree Bhat");
