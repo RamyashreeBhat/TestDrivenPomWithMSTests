@@ -16,7 +16,7 @@ namespace Framework
             //{
             //    Console.WriteLine(element.Text+"\n");
             //}
-            Console.WriteLine("Count of links = "+links.Count());
+            //Console.WriteLine("Count of links = "+links.Count());
             return links.Count();
            
         }
