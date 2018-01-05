@@ -13,12 +13,13 @@ namespace UnitTests
 {
     public class TestBase
     {
-        protected ExtentReports extentReport = new ExtentReports(@"C:\Users\11018656\.jenkins\workspace\CSharp_TestDrivenPom_GitHub_Test\TestResults\Results.html", false);
+        protected ExtentReports extentReport = new ExtentReports(Path.GetFullPath("Results.html"), false);
         protected ExtentTest extentTest;
 
         [TestInitialize]
         public void Initialize() {
             extentReport.AddSystemInfo("User Name", "Ramyashree Bhat");
+            Console.WriteLine(Path.GetFullPath("Results.html"));
             Browser.Initialize();
                     }
 
