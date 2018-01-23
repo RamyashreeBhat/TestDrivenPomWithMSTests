@@ -22,7 +22,7 @@ namespace UnitTests
                extentTest.Log(LogStatus.Pass, "Search result count is greater than 0");
             else
                 extentTest.Log(LogStatus.Fail, "No results found");
-
+            Console.WriteLine(Environment.CurrentDirectory.ToString());
             Console.WriteLine("Count of links = " + Pages.SearchResults.FindLinksCount(Config.SearchText));
             Assert.IsTrue(Pages.SearchResults.FindLinksCount(Config.SearchText) > 0, Config.NoResultsMessage);
         }
